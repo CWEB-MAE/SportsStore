@@ -51,8 +51,9 @@ namespace SportsStore.WebUI.App_Start
         /// Load your modules or register your services here!
         /// </summary>
         /// <param name="kernel">The kernel.</param>
-        private static void RegisterServices(IKernel kernel)
+        private static void RegisterServices(IKernel mykernel)
         {
+            System.Web.Mvc.DependencyResolver(new SportsStore.WebUI.Infrastructure.NinjectDependancyResolver(mykernel));
         }        
     }
 }
