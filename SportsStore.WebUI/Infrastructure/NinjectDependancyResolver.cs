@@ -52,6 +52,13 @@ namespace SportsStore.WebUI.Infrastructure
                     ProductName = "TroubleMaker",
                     ProductPrice = 12
                 },
+                new Product {
+                    ProductId = 3,
+                    ProductCategory = "",
+                    ProductDescription = "Oops" ,
+                    ProductName = "Wut?",
+                    ProductPrice = 99
+                },
             });
             kernel.Bind<IProductRepository>().ToConstant(myMock.Object);
         }
