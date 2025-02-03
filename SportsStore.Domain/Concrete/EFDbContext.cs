@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using SportsStore.Domain.Entities;
 
 namespace SportsStore.Domain.Concrete
 {
-    internal class EFDbContext
+    public class EFDbContext
     {
+        public DbSet<Product>Products { get; set; }
     }
 }
