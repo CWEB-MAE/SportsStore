@@ -124,6 +124,7 @@
     <Compile Include="HtmlHelpers\PagingHelper.cs" />
     <Compile Include="Infrastructure\NinjectDependancyResolver.cs" />
     <Compile Include="Models\PageInfo.cs" />
+    <Compile Include="Models\ProductViewListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
