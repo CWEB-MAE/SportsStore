@@ -34,38 +34,38 @@ namespace SportsStore.WebUI.Infrastructure
         private void AddBinding() 
         {
 
-            //kernel.Bind<IProductRepository>().To<EFProductRepository>();
+            kernel.Bind<IProductRepository>().To<EFProductRepository>();
 
-            Mock<IProductRepository> myMock
-                = new Mock<IProductRepository>();
-            myMock.Setup(m => m.Products).Returns(new List<Product>()
-            {
-                new Product {
-                    ProductID = 1,
-                    Category = "GPU",
-                    Brand = "Nvidia",
-                    Description = "An Nvidia GPU" ,
-                    Name = "RTX 5090",
-                    Price = 2000
-                },
-                new Product {
-                    ProductID = 1,
-                    Category = "GPU",
-                    Brand = "Nvidia",
-                    Description = "An Nvidia GPU" ,
-                    Name = "RTX 4090",
-                    Price = 1500
-                },
-                new Product {
-                    ProductID = 1,
-                    Category = "CPU",
-                    Brand = "AMD",
-                    Description = "An AMD CPU" ,
-                    Name = "Ryzen 7 9800X3D",
-                    Price = 12
-                },
-            });
-            kernel.Bind<IProductRepository>().ToConstant(myMock.Object);
+            /*            Mock<IProductRepository> myMock
+                            = new Mock<IProductRepository>();
+                        myMock.Setup(m => m.Products).Returns(new List<Product>()
+                        {
+                            new Product {
+                                ProductID = 1,
+                                Category = "GPU",
+                                Brand = "Nvidia",
+                                Description = "An Nvidia GPU" ,
+                                Name = "RTX 5090",
+                                Price = 2000
+                            },
+                            new Product {
+                                ProductID = 1,
+                                Category = "GPU",
+                                Brand = "Nvidia",
+                                Description = "An Nvidia GPU" ,
+                                Name = "RTX 4090",
+                                Price = 1500
+                            },
+                            new Product {
+                                ProductID = 1,
+                                Category = "CPU",
+                                Brand = "AMD",
+                                Description = "An AMD CPU" ,
+                                Name = "Ryzen 7 9800X3D",
+                                Price = 12
+                            },
+                        });
+                        kernel.Bind<IProductRepository>().ToConstant(myMock.Object);*/
         }
     }
 }
