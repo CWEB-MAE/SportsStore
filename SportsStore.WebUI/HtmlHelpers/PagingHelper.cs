@@ -2,9 +2,9 @@
 using System.Text;
 using System.Web.Mvc;
 using System.Collections.Generic;
-using SportsStore.WebUI.Models;
+using GadgetStore.WebUI.Models;
 
-namespace SportsStore.WebUI.HtmlHelpers
+namespace GadgetStore.WebUI.HtmlHelpers
 {
     public static class PagingHelpers
     {

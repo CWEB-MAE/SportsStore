@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using SportsStore.Domain.Entities;
+using GadgetStore.Domain.Entities;
 
-namespace SportsStore.WebUI.Models
+namespace GadgetStore.WebUI.Models
 {
     public class ProductViewListModel
     {

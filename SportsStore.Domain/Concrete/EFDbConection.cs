@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using SportsStore.Domain.Entities;
+using GadgetStore.Domain.Entities;
 
-namespace SportsStore.Domain.Concrete
+namespace GadgetStore.Domain.Concrete
 {
     public class EFDbConection : DbContext
     {

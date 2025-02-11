@@ -4,10 +4,10 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
-using SportsStore.Domain.Abstract;
-using SportsStore.Domain.Entities;
+using GadgetStore.Domain.Abstract;
+using GadgetStore.Domain.Entities;
 
-namespace SportsStore.Domain.Concrete
+namespace GadgetStore.Domain.Concrete
 {
     public class EFProductRepository : IProductRepository
     {

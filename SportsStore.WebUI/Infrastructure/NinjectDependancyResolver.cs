@@ -4,12 +4,12 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using SportsStore.Domain.Abstract;
-using SportsStore.Domain.Entities;
+using GadgetStore.Domain.Abstract;
+using GadgetStore.Domain.Entities;
 using Moq;
-using SportsStore.Domain.Concrete;
+using GadgetStore.Domain.Concrete;
 
-namespace SportsStore.WebUI.Infrastructure
+namespace GadgetStore.WebUI.Infrastructure
 {
     public class NinjectDependancyResolver : IDependencyResolver
     {

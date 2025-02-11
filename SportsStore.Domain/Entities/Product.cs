@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SportsStore.Domain.Entities
+namespace GadgetStore.Domain.Entities
 {
     [Table("Products_tbl")]
     public class Product

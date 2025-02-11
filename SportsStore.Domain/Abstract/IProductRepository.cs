@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SportsStore.Domain.Entities;
+using GadgetStore.Domain.Entities;
 
-namespace SportsStore.Domain.Abstract
+namespace GadgetStore.Domain.Abstract
 {
     public interface IProductRepository
     {

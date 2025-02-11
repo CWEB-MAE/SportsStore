@@ -1,5 +1,5 @@
 ﻿
-@model SportsStore.WebUI.Models.ProductViewListModel
+@model GadgetStore.WebUI.Models.ProductViewListModel
 
 @{
     ViewBag.Title = "List";
@@ -17,6 +17,6 @@
         <span class="lead">@p.Description</span>
     </div>
 }
-    <div class="btn-group float-end">
-        @Html.PageLinks(Model.pageInfo, x => Url.Action("List", new { page = x}))
-    </div>
+<div class="btn-group float-end">
+    @Html.PageLinks(Model.pageInfo, x => Url.Action("List", new { page = x }))
+</div>

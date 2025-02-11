@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using SportsStore.Domain.Abstract;
-using SportsStore.WebUI.Models;
+using GadgetStore.Domain.Abstract;
+using GadgetStore.WebUI.Models;
 
-namespace SportsStore.WebUI.Controllers
+namespace GadgetStore.WebUI.Controllers
 {
     public class ProductController : Controller
     {
