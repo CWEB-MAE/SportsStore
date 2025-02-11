@@ -27,16 +27,21 @@ namespace SportsStore.WebUI.Controllers
             // and returns a sequence starting at the item after the
             // last skipped item (if any).
 
-            ProductViewListModel model = new ProductViewListModel();
+            ProductViewListModel model = new ProductViewListModel
+            {
+                Products = myProductRepository.Products.OrderBy(p => p.ProductID)
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize),
 
-            return View(myProductRepository.Products.OrderBy(p => p.ProductID)
-                .Skip((page - 1) * PageSize)
-                .Take(PageSize),
-                PageInfo = new PageInfo { CurrentPage = page, ItemPerPage = PageSize, TotalItem = myProductRepository.Products.Count()}
-                );
+                pageInfo = new PageInfo
+                {
+                    CurrentPage = page,
+                    ItemPerPage = PageSize,
+                    TotalItem = myProductRepository.Products.Count()
+                }
+            };
 
-            // Take() returns a sequence containing up to the specified number of items.
-            // Anything after the count is ignored.
+            return View(model);
         }
 
         //public ViewResult List()
