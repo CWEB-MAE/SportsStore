@@ -19,7 +19,7 @@ namespace SportsStore.WebUI.Controllers
         }
 
         // GET: Product
-        public int PageSize = 4;
+        public int PageSize = 2;
 
         public ViewResult List(int page = 1)
         {

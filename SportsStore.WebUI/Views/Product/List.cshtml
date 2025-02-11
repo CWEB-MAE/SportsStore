@@ -1,5 +1,5 @@
 ﻿
-@model IEnumerable<SportsStore.Domain.Entities.Product>
+@model SportsStore.WebUI.Models.ProductViewListModel
 
 @{
     ViewBag.Title = "List";
@@ -7,7 +7,7 @@
 
 <h2>List</h2>
 
-@foreach(var p in Model) 
+@foreach(var p in Model.Products) 
 { 
     <div>
         <h3>Name = @p.Name</h3>
@@ -16,5 +16,8 @@
         <h3>Category = @p.Category</h3>
         <h3>Price = @p.Price</h3>
         <h1>====================</h1>
+    </div>
+    <div>
+        @Html.PageLinks(Model.pageInfo, x => Url.Action("List", new { page = x}))
     </div>
 }
