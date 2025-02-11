@@ -5,19 +5,18 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
-
 @foreach(var p in Model.Products) 
 { 
-    <div>
-        <h3>Name = @p.Name</h3>
-        <h3>Brand = @p.Brand</h3>
-        <h3>Description = @p.Description</h3>
-        <h3>Category = @p.Category</h3>
-        <h3>Price = @p.Price</h3>
-        <h1>====================</h1>
-    </div>
-    <div>
-        @Html.PageLinks(Model.pageInfo, x => Url.Action("List", new { page = x}))
+    <div class="card p-3 bg-light text-dark mb-2">
+        <h3>
+            <strong>@p.Name</strong>
+            <span class="badge bg-primary float-end">@p.Price.ToString("c")</span>
+            @p.Brand
+            @p.Category
+        </h3>
+        <span class="lead">@p.Description</span>
     </div>
 }
+    <div class="btn-group float-end">
+        @Html.PageLinks(Model.pageInfo, x => Url.Action("List", new { page = x}))
+    </div>
