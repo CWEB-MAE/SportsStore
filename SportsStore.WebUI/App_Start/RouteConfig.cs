@@ -13,16 +13,30 @@ namespace SportsStore.WebUI
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Route for pagination with optional category
             routes.MapRoute(
-                name: null,
+                name: "PagedWithCategory",
+                url: "Page{page}/Category/{category}",
+                defaults: new
+                {
+                    controller = "Product",
+                    action = "List",
+                    category = UrlParameter.Optional
+                }
+            );
+
+            // Route for pagination without category
+            routes.MapRoute(
+                name: "Paged",
                 url: "Page{page}",
-                defaults: new 
+                defaults: new
                 {
                     controller = "Product",
                     action = "List"
                 }
             );
 
+            // Default route
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
@@ -30,4 +44,5 @@ namespace SportsStore.WebUI
             );
         }
     }
+
 }
