@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using SportsStore.Domain.Entities;
 
 namespace SportsStore.WebUI.Models
 {
     public class ProductViewListModel
     {
-        public IEnumerable<Product> Products { get; set; }
-        public PageInfo pageInfo { get; set; }
-        public string CurrentCategory {get; set;}
+        public IEnumerable<Product> Products { get; set; } // List of products
+        public PageInfo PageInfo { get; set; } // Pagination details
+        public string CurrentCategory { get; set; } // Currently selected category
     }
 }

@@ -10,19 +10,21 @@ namespace SportsStore.WebUI.Controllers
 {
     public class ProductController : Controller
     {
-
         private IProductRepository myProductRepository;
+        public int PageSize = 2;
 
-        public ProductController(IProductRepository productRepository) 
-        { 
+        public ProductController(IProductRepository productRepository)
+        {
             this.myProductRepository = productRepository;
         }
 
         // GET: Product
-        public int PageSize = 2;
-
         public ViewResult List(string category, int page = 1)
         {
+            int totalItems = category == null
+                ? myProductRepository.Products.Count()
+                : myProductRepository.Products.Count(p => p.Category == category);
+
             ProductViewListModel model = new ProductViewListModel
             {
                 Products = myProductRepository.Products
@@ -31,24 +33,12 @@ namespace SportsStore.WebUI.Controllers
                     .Skip((page - 1) * PageSize)
                     .Take(PageSize),
 
-                pageInfo = new PageInfo
-                {
-                    CurrentPage = page,
-                    ItemPerPage = PageSize,
-                    TotalItem = category == null ?
-                        myProductRepository.Products.Count() :
-                        myProductRepository.Products.Count(p => p.Category == category)
-                },
+                PageInfo = new PageInfo(totalItems, PageSize, page), // Using the constructor
 
                 CurrentCategory = category
             };
 
             return View(model);
         }
-
-        //public ViewResult List()
-        //{
-        //    return View(myProductRepository.Products);
-        //}
     }
 }

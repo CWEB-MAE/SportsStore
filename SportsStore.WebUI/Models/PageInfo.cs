@@ -7,15 +7,19 @@ namespace SportsStore.WebUI.Models
 {
     public class PageInfo
     {
-        public int TotalItem { get; set; }
-        public int ItemPerPage { get; set; }
-        public int CurrentPage { get; set; }
-        public int TotalPage 
+        public int TotalItems { get; set; }     // Total number of items
+        public int ItemsPerPage { get; set; }   // Items displayed per page
+        public int CurrentPage { get; set; }    // The current active page
+
+        // Computed property: Total Pages
+        public int TotalPages => (int)Math.Ceiling((decimal)TotalItems / ItemsPerPage);
+
+        // Optional Constructor for convenience
+        public PageInfo(int totalItems, int itemsPerPage, int currentPage)
         {
-            get 
-            {
-                return (int)Math.Ceiling((decimal)TotalItem / ItemPerPage); 
-            } 
+            TotalItems = totalItems;
+            ItemsPerPage = itemsPerPage;
+            CurrentPage = currentPage;
         }
     }
 }
