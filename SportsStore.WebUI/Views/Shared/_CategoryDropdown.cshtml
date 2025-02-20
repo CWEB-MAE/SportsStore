@@ -19,7 +19,6 @@
         </li>
         @foreach (var cat in Model)
         {
-            // 'cat' is the original category name; we display it in uppercase for visual consistency.
             <li>
                 <a class="dropdown-item @(cat == currentCategory ? "active" : "")"
                    href="@Url.Action("List", "Product", new { page = 1, category = cat })">
