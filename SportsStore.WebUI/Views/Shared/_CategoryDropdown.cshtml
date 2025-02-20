@@ -1,29 +1,29 @@
-﻿<div class="dropdown mb-3">
-    <button class="btn btn-outline-secondary dropdown-toggle w-100"
-            type="button"
-            id="categoryDropdown"
-            data-bs-toggle="dropdown"
-            aria-expanded="false">
-        Select Category
+﻿@{
+    // Retrieve the current category from ViewBag.
+    // If not set, use an empty string.
+    var currentCategory = ViewBag.SelectedCategory as string;
+    // Set the dropdown title based on the current category.
+    string dropdownTitle = string.IsNullOrEmpty(currentCategory) ? "Select Category" : currentCategory.ToUpper();
+}
+<div class="dropdown mb-3">
+    <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        @dropdownTitle
     </button>
     <ul class="dropdown-menu w-100" aria-labelledby="categoryDropdown">
-        <!-- Reset Option -->
+        <!-- Reset option -->
         <li>
-            <a class="dropdown-item text-uppercase @(ViewBag.SelectedCategory == null ? "active" : "")"
+            <a class="dropdown-item text-uppercase @(string.IsNullOrEmpty(currentCategory) ? "active" : "")"
                href="@Url.Action("List", "Product", new { page = 1, category = (string)null })">
                 RESET
             </a>
         </li>
-
         @foreach (var cat in Model)
         {
-            string originalCategory = cat;           // Original value for URL
-            string displayCategory = cat.ToUpper();    // Uppercase for display only
-
+            // 'cat' is the original category name; we display it in uppercase for visual consistency.
             <li>
-                <a class="dropdown-item @(ViewBag.SelectedCategory == originalCategory ? "active" : "")"
-                   href="@Url.Action("List", "Product", new { page = 1, category = originalCategory })">
-                    @displayCategory
+                <a class="dropdown-item @(cat == currentCategory ? "active" : "")"
+                   href="@Url.Action("List", "Product", new { page = 1, category = cat })">
+                    @cat.ToUpper()
                 </a>
             </li>
         }
