@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    
 </head>
 <body>
 
@@ -17,7 +18,7 @@
     <div class="container mt-3">
         <div class="row">
 
-            <!-- Left Side: Categories -->
+            <!-- Left Side: Category Dropdown -->
             <div id="categories" class="col-md-3">
                 @Html.Action("Menu", "Nav")
             </div>
@@ -29,6 +30,6 @@
 
         </div>
     </div>
-
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

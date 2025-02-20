@@ -1,0 +1,31 @@
+﻿<div class="dropdown mb-3">
+    <button class="btn btn-outline-secondary dropdown-toggle w-100"
+            type="button"
+            id="categoryDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+        Select Category
+    </button>
+    <ul class="dropdown-menu w-100" aria-labelledby="categoryDropdown">
+        <!-- Reset Option -->
+        <li>
+            <a class="dropdown-item text-uppercase @(ViewBag.SelectedCategory == null ? "active" : "")"
+               href="@Url.Action("List", "Product", new { page = 1, category = (string)null })">
+                RESET
+            </a>
+        </li>
+
+        @foreach (var cat in Model)
+        {
+            string originalCategory = cat;           // Original value for URL
+            string displayCategory = cat.ToUpper();    // Uppercase for display only
+
+            <li>
+                <a class="dropdown-item @(ViewBag.SelectedCategory == originalCategory ? "active" : "")"
+                   href="@Url.Action("List", "Product", new { page = 1, category = originalCategory })">
+                    @displayCategory
+                </a>
+            </li>
+        }
+    </ul>
+</div>
